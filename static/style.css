@@ -1,0 +1,408 @@
+/* Custom styles for elevator shaft and car */
+body {
+    font-family: 'Inter', sans-serif;
+    /* Base light colors set via Tailwind in HTML */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+/* Base dark colors are set via Tailwind in HTML using the .dark class on <html> */
+
+/* Apply transitions to main container */
+.container {
+     transition: background-color 0.3s ease-in-out;
+}
+
+/* Dark mode styles primarily use Tailwind dark: variants in HTML/JS */
+/* Add specific overrides or styles for non-Tailwind elements here */
+
+.elevator-shaft {
+    position: relative;
+    border-left: 2px solid #9ca3af; /* gray-400 */
+    border-right: 2px solid #9ca3af;
+    background-color: #f3f4f6; /* gray-100 */
+    overflow: hidden;
+     min-width: 80px;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+.dark .elevator-shaft {
+    background-color: #1e293b; /* Darker background for the shaft */
+    border-color: #334155; /* Subtle border for the shaft */
+}
+
+.floor {
+    height: 80px;
+    border-bottom: 1px dashed #d1d5db; /* gray-300 */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9fafb; /* gray-50 */
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+.dark .floor {
+    background-color: #273549; /* Darker background for floors */
+    border-color: #3b4a5a; /* Subtle border for floors */
+}
+
+/* Floor specific background colors */
+.floor-ground { background-color: #dcfce7; /* green-100 */ }
+.dark .floor-ground { background-color: #064e3b; } /* darker green-800 */
+.floor-basement { background-color: #e5e7eb; /* gray-200 */ }
+.dark .floor-basement { background-color: #4b5563; /* gray-600 */ }
+.floor-above-ground { background-color: #f0fdf4; /* green-50 */ }
+.dark .floor-above-ground { background-color: #374151; /* gray-700 */ }
+
+ .floor-label-inside {
+    position: absolute;
+    left: 4px;
+    top: 2px;
+    font-size: 0.75rem;
+    color: #6b7280; /* gray-500 */
+    z-index: 5;
+    transition: color 0.3s ease-in-out;
+}
+.dark .floor-label-inside {
+    color: #cbd5e1; /* Light text for floor labels */
+}
+
+.elevator-car {
+    position: absolute;
+    bottom: 0;
+    left: 2px;
+    right: 2px;
+    height: 76px;
+    background-color: #60a5fa; /* blue-400 */
+    border: 1px solid #3b82f6; /* blue-500 */
+    border-radius: 4px;
+    transition: bottom 0.8s ease-in-out, background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    padding: 1px;
+}
+.dark .elevator-car {
+    background-color: #2563eb; /* Blue background for the elevator car */
+    border-color: #1d4ed8; /* Subtle border for the elevator car */
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.2); /* Enhanced shadow for better visibility */
+}
+
+.elevator-details {
+    font-size: 0.65rem;
+    color: white;
+    text-align: center;
+    padding: 0px;
+    line-height: 1.1;
+    width: 100%;
+    overflow-wrap: break-word;
+}
+.dark .elevator-details {
+    color: #e2e8f0; /* Light text for elevator details */
+}
+.emoji-container {
+    line-height: 1;
+    letter-spacing: -1px;
+    word-break: break-all;
+    margin-bottom: 1px;
+    font-size: 0.75rem;
+}
+
+.elevator-details > div {
+    margin-bottom: 0px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Ensure all text inside elevator details uses text-xs */
+.elevator-details .text-xs,
+.elevator-details .text-sm,
+.elevator-details .text-lg,
+.elevator-details .text-xxs {
+     font-size: 0.75rem !important;
+     line-height: 1.2 !important;
+}
+.elevator-details .font-semibold { font-weight: 600; }
+.elevator-details .mt-1 { margin-top: 2px; }
+
+
+.text-xxs { font-size: 0.65rem; line-height: 0.9rem; }
+
+ /* Style for Num control section inputs */
+.call-value-display.num-value {
+    min-width: 24px;
+    width: 24px;
+    padding: 1px 2px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-left: 1px solid #d1d5db; /* gray-300 */
+    border-right: 1px solid #d1d5db;
+    border-top: none;
+    border-bottom: none;
+    border-radius: 0;
+    text-align: center;
+    background-color: white;
+    color: #374151; /* gray-700 */
+    height: 20px;
+    line-height: 18px;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.dark .call-value-display.num-value {
+    border-color: #4b5563; /* gray-600 */
+    background-color: #374151; /* gray-700 */
+    color: #f3f4f6; /* gray-100 */
+}
+
+/* Vertical buttons for Num control */
+.adjust-control { margin: 0 2px; }
+
+.adjust-button-vertical {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 16px;
+    padding: 0;
+    font-size: 0.65rem;
+    line-height: 1;
+    border: 1px solid #9ca3af; /* gray-400 */
+    background-color: #f3f4f6; /* gray-100 */
+    color: #374151; /* gray-700 */
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.1s ease-in-out, border-color 0.1s ease-in-out, color 0.1s ease-in-out;
+}
+.dark .adjust-button-vertical {
+    border-color: #4b5563; /* gray-600 */
+    background-color: #4b5563; /* gray-600 */
+    color: #d1d5db; /* gray-300 */
+}
+
+.adjust-button-vertical.adjust-up { border-radius: 4px 4px 0 0; border-bottom-width: 0.5px; }
+.adjust-button-vertical.adjust-down { border-radius: 0 0 4px 4px; border-top-width: 0.5px; }
+
+.adjust-button-vertical:hover { background-color: #e5e7eb; /* gray-200 */ }
+.dark .adjust-button-vertical:hover { background-color: #525f74; }
+
+.adjust-button-vertical:active { background-color: #d1d5db; /* gray-300 */ }
+.dark .adjust-button-vertical:active { background-color: #6b7280; /* gray-500 */ }
+
+.adjust-button-vertical:disabled { opacity: 0.5; cursor: not-allowed; background-color: #f9fafb; /* gray-50 */ }
+.dark .adjust-button-vertical:disabled { background-color: #374151; /* gray-700 */ }
+
+
+/* Destination Floor Buttons */
+.dest-button {
+    padding: 1px 6px;
+    font-size: 0.7rem;
+    line-height: 1.2;
+    border: 1px solid #d1d5db; /* gray-300 */
+    border-radius: 4px;
+    background-color: #e5e7eb; /* gray-200 */
+    color: #374151; /* gray-700 */
+    cursor: pointer;
+    transition: background-color 0.1s ease-in-out, border-color 0.1s ease-in-out, color 0.1s ease-in-out;
+}
+.dark .dest-button {
+    border-color: #4b5563; /* gray-600 */
+    background-color: #4b5563; /* gray-600 */
+    color: #d1d5db; /* gray-300 */
+}
+
+.dest-button:hover { background-color: #d1d5db; /* gray-300 */ }
+.dark .dest-button:hover { background-color: #525f74; }
+
+.dest-button.selected {
+    background-color: #60a5fa; /* blue-400 */
+    color: white;
+    border-color: #3b82f6; /* blue-500 */
+    font-weight: 500;
+}
+.dark .dest-button.selected {
+    background-color: #2563eb; /* blue-600 */
+    border-color: #1d4ed8; /* blue-700 */
+    color: white;
+}
+
+
+/* Call Elevator Button */
+.call-button {
+    padding: 4px 8px; /* Adjusted vertical padding */
+    font-size: 0.75rem;
+    border-radius: 4px;
+    min-width: 60px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 500;
+    align-self: center;
+    transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+    /* Base colors set via Tailwind in JS */
+}
+.call-button:disabled {
+     opacity: 0.5;
+     cursor: not-allowed;
+}
+
+ /* Waiting passenger list styling */
+.waiting-list {
+    font-size: 0.7rem;
+    color: #4b5563; /* gray-600 */
+    margin-left: 5px;
+    line-height: 1.2;
+    overflow-wrap: break-word;
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.dark .waiting-list { color: #9ca3af; /* gray-400 */ }
+
+.waiting-group { margin-bottom: 2px; }
+.waiting-group .emoji-container { justify-content: flex-end; }
+.waiting-group .text-xxs { display: block; margin-top: -2px; }
+/* Dark mode colors for waiting list text */
+.dark .waiting-group .text-green-700 { color: #6ee7b7 !important; /* emerald-300 */ }
+.dark .waiting-group .text-red-700 { color: #fda4af !important; /* rose-300 */ }
+.dark .waiting-group .text-gray-600 { color: #9ca3af !important; /* gray-400 */ }
+
+
+/* Styles for the decision prompt (Modal) */
+/* Base styles set via Tailwind in HTML */
+/* Add specific dark overrides */
+.dark #decision-prompt .bg-white { background-color: #1f2937 !important; } /* gray-800 */
+.dark #decision-prompt .text-gray-900 { color: #f9fafb !important; } /* gray-50 */
+.dark #decision-prompt .text-gray-600 { color: #d1d5db !important; } /* gray-300 */
+.dark #decision-prompt .text-gray-700 { color: #e5e7eb !important; } /* gray-200 */
+.dark #decision-prompt .border { border-color: #4b5563 !important; } /* gray-600 */
+.dark #decision-prompt input[type="number"] {
+     border-color: #4b5563; /* gray-600 */
+     background-color: #374151; /* gray-700 */
+     color: #f3f4f6; /* gray-100 */
+}
+.dark #decision-prompt #decision-confirm { background-color: #15803d; } /* dark green */
+.dark #decision-prompt #decision-confirm:hover { background-color: #166534; }
+.dark #decision-prompt #decision-cancel { background-color: #b91c1c; } /* dark red */
+.dark #decision-prompt #decision-cancel:hover { background-color: #991b1b; }
+
+/* Add transition to main container background */
+.container {
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Enhance dark mode styling for the main container */
+.dark .container {
+    background-color: #1f2937; /* Darker background for the container */
+    color: #e5e7eb; /* Light text for readability */
+    border: 1px solid #374151; /* Subtle border for better definition */
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.2); /* Enhanced shadow for depth */
+}
+
+/* Style for range input thumb (requires vendor prefixes often) */
+input[type="range"].range-thumb-blue-500::-webkit-slider-thumb {
+    background-color: #3b82f6; /* blue-500 */
+}
+input[type="range"].range-thumb-blue-500::-moz-range-thumb {
+     background-color: #3b82f6; /* blue-500 */
+}
+/* Dark mode thumb */
+.dark input[type="range"].dark\:range-thumb-blue-400::-webkit-slider-thumb {
+     background-color: #60a5fa; /* blue-400 */
+}
+.dark input[type="range"].dark\:range-thumb-blue-400::-moz-range-thumb {
+      background-color: #60a5fa; /* blue-400 */
+}
+
+/* Ensure all UI elements have proper dark mode styling */
+.dark .bg-gray-100 {
+    background-color: #1f2937; /* Darker background for light gray areas */
+}
+
+.dark .text-gray-700 {
+    color: #e5e7eb; /* Lighter text for labels */
+}
+
+.dark .border-gray-300 {
+    border-color: #4b5563; /* Subtle border for dark mode */
+}
+
+.dark .shadow-inner {
+    box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.1); /* Adjust shadow for dark mode */
+}
+
+.dark .rounded-md {
+    background-color: #374151; /* Slightly lighter dark background */
+}
+
+.dark .focus:ring-blue-500 {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); /* Blue focus ring for dark mode */
+}
+
+.dark .focus:border-blue-500 {
+    border-color: #2563eb; /* Blue border for focused elements */
+}
+
+.dark .range-thumb-blue-500 {
+    background-color: #2563eb; /* Darker blue for range slider thumb */
+}
+
+.dark .range-thumb-blue-400 {
+    background-color: #3b82f6; /* Slightly lighter blue for hover */
+}
+
+/* Make labels lighter in dark mode */
+.dark h1, .dark h2, .dark h3 {
+    color: #f3f4f6; /* Brighter text for headings */
+}
+
+/* Style for backend connection textbox */
+#ws-url {
+    background-color: #f9fafb; /* gray-50 */
+    color: #374151; /* gray-700 */
+    border-color: #d1d5db; /* gray-300 */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.dark #ws-url {
+    background-color: #374151; /* gray-700 */
+    color: #f3f4f6; /* gray-100 */
+    border-color: #4b5563; /* gray-600 */
+}
+
+/* Style for destination and number container */
+.floor-control-row {
+    background-color: #f9fafb; /* gray-50 */
+    color: #374151; /* gray-700 */
+    border-color: #d1d5db; /* gray-300 */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    height: 80px; /* Match FLOOR_HEIGHT_PX */
+    display: flex;
+    align-items: center;
+}
+
+.dark .floor-control-row {
+    background-color: #374151; /* gray-700 */
+    color: #f3f4f6; /* gray-100 */
+    border-color: #4b5563; /* gray-600 */
+}
+
+/* Style for legend text */
+.legend-text {
+    color: #4b5563; /* gray-600 */ /* Updated for better visibility */
+    transition: color 0.3s ease-in-out;
+}
+
+.dark .legend-text {
+    color: #e2e8f0; /* gray-200 */ /* Updated for better visibility */
+}
+
+/* Style for legend paragraphs */
+.legend-text p {
+    color: #d1d5db; /* gray-300 */
+    transition: color 0.3s ease-in-out;
+}
+
+.dark:text-gray-100 {
+    color: #f3f4f6; /* Updated to a lighter shade for better visibility */
+}
+

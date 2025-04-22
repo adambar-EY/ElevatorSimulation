@@ -7,7 +7,7 @@ services:
     name: ElevatorSimulation # Choose a name for your service on Render
     env: docker # Specify that we are using Docker for deployment
     # Path to the Dockerfile, relative to the repository root
-    dockerfilePath: ./elevator/Dockerfile
+    dockerfilePath: Dockerfile
     # Specify the plan (e.g., free, starter). Check Render's pricing page.
     plan: free # Or your desired plan
     # Define environment variables if needed (e.g., secrets)

@@ -4,7 +4,7 @@
 services:
   # Define the web service for the FastAPI application
   - type: web
-    name: elevator-simulation # Choose a name for your service on Render
+    name: ElevatorSimulation # Choose a name for your service on Render
     env: docker # Specify that we are using Docker for deployment
     # Path to the Dockerfile, relative to the repository root
     dockerfilePath: ./elevator/Dockerfile

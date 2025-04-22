@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM python:3.13-slim
+FROM python:3.10-slim
 
 # Set the working directory in the container
 WORKDIR /app
@@ -9,14 +9,21 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Install any needed packages specified in requirements.txt
-# Add gunicorn here as it's needed for deployment
-RUN echo "gunicorn" >> requirements.txt && \
-    pip install --no-cache-dir --upgrade pip && \
+RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
+
+# Explicitly install gunicorn separately
+# This makes it easier to spot errors related to gunicorn installation
+RUN pip install --no-cache-dir gunicorn
 
 # Copy the rest of the application code into the container at /app
 # This includes main.py, elevator.py, index.html, and the static folder
 COPY . .
+
+# Verify gunicorn installation (optional, for debugging)
+# This command will print the gunicorn version if installed correctly,
+# or error out if it's not found by Python. Check build logs for this output.
+RUN python -m gunicorn --version
 
 # Make port 8000 available to the world outside this container
 # Render automatically uses the port exposed here or specified in render.yaml

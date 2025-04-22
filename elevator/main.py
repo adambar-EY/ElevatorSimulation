@@ -14,7 +14,6 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 # *** End New Imports ***
 
-
 # Assuming elevator.py is in the same directory
 from elevator import Elevator # Use the latest elevator.py
 

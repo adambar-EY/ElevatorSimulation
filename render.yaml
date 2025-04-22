@@ -1,0 +1,27 @@
+# render.yaml
+# Configuration file for deploying the Elevator Simulation to Render.
+
+services:
+  # Define the web service for the FastAPI application
+  - type: web
+    name: elevator-simulation # Choose a name for your service on Render
+    env: docker # Specify that we are using Docker for deployment
+    # Path to the Dockerfile, relative to the repository root
+    dockerfilePath: ./elevator/Dockerfile
+    # Specify the plan (e.g., free, starter). Check Render's pricing page.
+    plan: free # Or your desired plan
+    # Define environment variables if needed (e.g., secrets)
+    # envVars:
+    #   - key: MY_SECRET_KEY
+    #     value: some_secret_value
+    # Define health check path - Render uses this to ensure the app is running
+    healthCheckPath: / # Assumes your root path returns a 200 OK status
+    # Optional: Specify the port if it's different from the one EXPOSEd in Dockerfile
+    # dockerCommand: "gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app -b 0.0.0.0:$PORT" # Example if using PORT env var
+
+# Optional: Define databases or other infrastructure if needed
+# databases:
+#   - name: my-database
+#     databaseName: my_db
+#     user: my_user
+#     plan: free

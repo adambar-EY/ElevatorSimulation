@@ -35,4 +35,4 @@ ENV PORT=8000
 # Run main.py when the container launches using Gunicorn
 # Use the module path 'main:app' since WORKDIR is /app
 # The application files (main.py, elevator.py, etc.) are directly in /app
-CMD ["gunicorn", "-w", "4", "-k", "uvicorn.workers.UvicornWorker", "main:app", "-b", "0.0.0.0:8000"]
+CMD ["gunicorn", "-w", "4", "-k", "uvicorn.workers.UvicornWorker", "main:main", "-b", "0.0.0.0:8000"]
